@@ -36,10 +36,11 @@ public class PlayerController : MonoBehaviour
         playerAnimator = GetComponentInParent<Animator>();
     }
 
-    public void OnMove(InputAction.CallbackContext context)
-    {
+        public void OnMove(InputAction.CallbackContext context)
+        {
         moveInput = context.ReadValue<Vector2>();
-    }
+          //  Debug.Log($"Move Input: {moveInput}");
+        }
 
     public void OnLook(InputAction.CallbackContext context)
     {
@@ -62,6 +63,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    [System.Obsolete]
     private void FixedUpdate()
     {
         RotateTowardsMouse();
@@ -82,6 +84,8 @@ public class PlayerController : MonoBehaviour
         }
 
         MoveRelativeToScreen();
+        
+        
     }
 
     private void RotateTowardsMouse()

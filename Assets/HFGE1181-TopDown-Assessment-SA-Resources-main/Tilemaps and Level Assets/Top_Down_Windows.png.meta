@@ -66,7 +66,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -90,7 +90,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -131,12 +131,12 @@ TextureImporter:
       name: Top_Down_Windows_0
       rect:
         serializedVersion: 2
-        x: 2
+        x: 0
         y: 0
-        width: 16
-        height: 31
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.56, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -153,11 +153,11 @@ TextureImporter:
       name: Top_Down_Windows_2
       rect:
         serializedVersion: 2
-        x: 32
-        y: 10
+        x: 64
+        y: 0
         width: 32
-        height: 21
-      alignment: 0
+        height: 32
+      alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
@@ -175,12 +175,12 @@ TextureImporter:
       name: Top_Down_Windows_4
       rect:
         serializedVersion: 2
-        x: 64
+        x: 160
         y: 0
         width: 32
-        height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        height: 32
+      alignment: 9
+      pivot: {x: 0.56, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -194,102 +194,80 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Top_Down_Windows_7
-      rect:
-        serializedVersion: 2
-        x: 110
-        y: 0
-        width: 16
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d51da5b85a183ad469d945228bb1957c
-      internalID: -1680689526
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Top_Down_Windows_8
-      rect:
-        serializedVersion: 2
-        x: 162
-        y: 0
-        width: 16
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 59a192fed971e3642a6fe48700bb8a98
-      internalID: 1119293606
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Top_Down_Windows_11
+      name: Top_Down_Windows_5
       rect:
         serializedVersion: 2
         x: 192
-        y: 10
+        y: 0
         width: 32
-        height: 21
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: c97de252700d09f4597247cf4896cc76
-      internalID: -799109322
+      spriteID: 99bb1bcc5d2513ee0800000000000000
+      internalID: -1283153340608169063
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Top_Down_Windows_13
+      name: Top_Down_Windows_6
       rect:
         serializedVersion: 2
         x: 224
         y: 0
         width: 32
-        height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18756}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4b0ff3c0fa0ec4f4394930d2769eef3e
-      internalID: 797855755
+      spriteID: 0e00e11df11927541a3ad4afa88e0a0d
+      internalID: -2071033696
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Top_Down_Windows_14
+      name: Top_Down_Windows_7
       rect:
         serializedVersion: 2
-        x: 270
+        x: 256
         y: 0
-        width: 16
+        width: 32
         height: 32
-      alignment: 0
+      alignment: 9
+      pivot: {x: 0.44, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0191e74b27fd71a44a065c6c47c1c6d0
+      internalID: 2018015858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Top_Down_Windows_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 32
+        height: 32
+      alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
@@ -297,8 +275,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f47bbf14eed45af41a4555954e93f0d3
-      internalID: -2133509012
+      spriteID: 410c039d6265f2a4e97e155a76b2c01e
+      internalID: 6629965385960251730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Top_Down_Windows_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.44, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dbd798d637875de4ea2b32a4f582f322
+      internalID: -5349143311145641236
       vertices: []
       indices: 
       edges: []
@@ -307,7 +307,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: ee63d940fcae56940acf49aff61b899a
+    spriteID: 5fab5433ebbd3424290cc7d38717d568
     internalID: 0
     vertices: []
     indices: 
@@ -319,19 +319,12 @@ TextureImporter:
     nameFileIdTable:
       Top_Down_Windows_0: -5307259821052598466
       Top_Down_Windows_1: 6629965385960251730
-      Top_Down_Windows_10: 502319137
-      Top_Down_Windows_11: -799109322
-      Top_Down_Windows_12: -1939375157
-      Top_Down_Windows_13: 797855755
-      Top_Down_Windows_14: -2133509012
       Top_Down_Windows_2: -6846989670225210851
       Top_Down_Windows_3: -5349143311145641236
       Top_Down_Windows_4: 324161698688977581
       Top_Down_Windows_5: -1283153340608169063
-      Top_Down_Windows_6: -2122600495
-      Top_Down_Windows_7: -1680689526
-      Top_Down_Windows_8: 1119293606
-      Top_Down_Windows_9: -131058889
+      Top_Down_Windows_6: -2071033696
+      Top_Down_Windows_7: 2018015858
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

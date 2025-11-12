@@ -46,7 +46,7 @@ public class PlayerHealth : MonoBehaviour
         }
 
         onHealthChanged?.Invoke(currentHealth, maxHealth);
-        UIManager.Instance.UpdateHealth(currentHealth, maxHealth);
+    //    UIManager.Instance.UpdateHealth(currentHealth, maxHealth);
     }
 
     public void TakeDamage(int amount, Vector2 hitSource)
