@@ -185,10 +185,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79d07a69a375d4b4d968730df2273b4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 50
+  maxHealth: 1
   canDie: 1
   destroyOnDeath: 1
-  destroyDelay: 2
+  destroyDelay: 1
   animator: {fileID: 6646417076951420387}
   deathTriggerName: Die
   onDeath:
