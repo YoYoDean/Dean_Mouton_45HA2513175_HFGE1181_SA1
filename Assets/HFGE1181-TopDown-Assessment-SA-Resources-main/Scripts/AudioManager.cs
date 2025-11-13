@@ -20,11 +20,13 @@ public class AudioManager : MonoBehaviour
     private Dictionary<string, AudioSource> audioSources = new Dictionary<string, AudioSource>();
 
     private void Awake()
+
     {
         if (Instance == null)
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
+            
         }
         else
         {

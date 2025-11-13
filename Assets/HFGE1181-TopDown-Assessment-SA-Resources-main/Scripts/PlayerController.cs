@@ -34,6 +34,7 @@ public class PlayerController : MonoBehaviour
         playerHealth = GetComponent<PlayerHealth>();
         playerWeaponManager = GetComponent<PlayerWeaponManager>();
         playerAnimator = GetComponentInParent<Animator>();
+        AudioManager.Instance.Play("Background");
     }
 
         public void OnMove(InputAction.CallbackContext context)
