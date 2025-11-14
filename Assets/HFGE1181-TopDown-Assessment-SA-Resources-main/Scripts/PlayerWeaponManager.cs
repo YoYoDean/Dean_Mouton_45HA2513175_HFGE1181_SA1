@@ -2,6 +2,7 @@ using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class PlayerWeaponManager : MonoBehaviour
 {
@@ -22,11 +23,18 @@ public class PlayerWeaponManager : MonoBehaviour
     private WeaponBase currentWeaponScript;
     private PlayerHealth playerHealth;
     private Animator playerAnimator;
+    public Image currGun;
+    public Sprite imagePist;
+    public Sprite imageShotgun;
+    public Sprite imageSniper;
 
     private void Start()
     {
         playerHealth = GetComponent<PlayerHealth>();
-        playerAnimator = GetComponent<Animator>();
+        playerAnimator = GetComponent<Animator>();  
+        
+        if (currGun.sprite == null) currGun.sprite = imagePist;
+
 
         if (currentWeaponGameObject != null)
         {
@@ -52,6 +60,8 @@ public class PlayerWeaponManager : MonoBehaviour
         }
     }
 
+    
+
 
     public void OnShoot(InputAction.CallbackContext context)
     {
@@ -59,6 +69,7 @@ public class PlayerWeaponManager : MonoBehaviour
         {
             return;
         }
+
 
         if (context.performed && currentWeaponScript != null)
         {
@@ -99,26 +110,42 @@ public class PlayerWeaponManager : MonoBehaviour
     }
 
     private void EquipWeapon(GameObject weaponPrefab)
-    {
-        currentWeaponScript = weaponPrefab.GetComponent<WeaponBase>();
-
-        WeaponData weaponData = weaponPrefab.GetComponent<WeaponData>();
-        if (weaponData != null)
         {
-            currentPickup = weaponData.pickupPrefab;
+            currentWeaponScript = weaponPrefab.GetComponent<WeaponBase>();
+            //Debug.Log("EquipWeapon called with: " + weaponPrefab.name);
+            WeaponData weaponData = weaponPrefab.GetComponent<WeaponData>();
+            if (weaponData != null)
+            {   
+                Debug.Log("Weapon type = " + weaponData.weaponType);
+                currentPickup = weaponData.pickupPrefab;
+                playerAnimator.SetTrigger(weaponData.idleTrigger);
 
-            playerAnimator.SetTrigger(weaponData.idleTrigger);
+       
+                switch (weaponData.weaponType)
+                {
+                    case WeaponType.Pistol:
+                        currGun.sprite = imagePist;
+                        break;
 
-           
-        }
+                    case WeaponType.Shotgun:
+                        currGun.sprite = imageShotgun;
+                        break;
 
-        Transform firePointTransform = weaponPrefab.transform.Find("WeaponFirePoint");
-        if (firePointTransform != null)
-        {
-            weaponFirePoint = firePointTransform;
-            currentWeaponScript.firePoint = weaponFirePoint;
+                    case WeaponType.Sniper:
+                        currGun.sprite = imageSniper;
+                        break;
         }
     }
+
+    // Assign fire point
+    Transform firePointTransform = weaponPrefab.transform.Find("WeaponFirePoint");
+    if (firePointTransform != null)
+    {
+        weaponFirePoint = firePointTransform;
+        currentWeaponScript.firePoint = weaponFirePoint;
+    }
+}
+
 
     private IEnumerator StopDropMovement(Rigidbody2D rb)
     {

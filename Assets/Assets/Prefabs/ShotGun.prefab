@@ -69,6 +69,7 @@ MonoBehaviour:
   shootTrigger: ShootShotGun
   idleTrigger: IdleShotGun
   sprintTrigger: SprintShotGun
+  weaponType: 1
 --- !u!1 &8804680236776535026
 GameObject:
   m_ObjectHideFlags: 0
