@@ -1,6 +1,8 @@
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
-public class Window : MonoBehaviour
+public class Window : MonoBehaviour 
 {
     [Header("Health Settings")]
     [SerializeField] private float maxHealth = 100f;
@@ -13,10 +15,15 @@ public class Window : MonoBehaviour
 
     private float currentHealth;
     private bool isDestroyed = false;
+    public GameObject checkInArea;
+    private bool inArea;
+    private bool buttonClicked = false;
+    
 
     private void Awake()
     {
         animator = GetComponent<Animator>();
+        
     }
 
     private void Start()
@@ -28,20 +35,30 @@ public class Window : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-        if (isDestroyed) return;
-
-        float damagePerSecond = maxHealth / timeToDestroy;
-        currentHealth -= damagePerSecond * Time.deltaTime;
-
-        Debug.Log($"Window Health: {currentHealth:F2}");
-
-        if (currentHealth <= 0f)
+   private void Update()
+{   
+    inArea = checkInArea.GetComponent<InArea>().inArea;
+    
+    if (isDestroyed)
+    {  // Debug.Log(inArea);
+        if (Keyboard.current.eKey.wasPressedThisFrame || buttonClicked && inArea)
         {
-            BreakWindow();
+            FixWindow();
+            buttonClicked = false;
+           // Debug.Log("Fix click");
         }
+        return; 
     }
+
+    
+    float damagePerSecond = maxHealth / timeToDestroy;
+    currentHealth -= damagePerSecond * Time.deltaTime;
+
+    if (currentHealth <= 0f)
+    {
+        BreakWindow();
+    }
+}
 
     private void BreakWindow()
     {
@@ -51,6 +68,7 @@ public class Window : MonoBehaviour
         if (animator != null)
         {
             animator.SetTrigger("Break");
+            GetComponent<BoxCollider2D>().enabled = false;
         }
 
         AudioManager.Instance.Play("BreakWindow");
@@ -62,4 +80,27 @@ public class Window : MonoBehaviour
             enemySpawnPoint.SetActive(true);
         }
     }
+
+    private void FixWindow()
+{
+    isDestroyed = false;
+    currentHealth = maxHealth;
+
+    if (animator != null)
+    {
+        animator.SetTrigger("Fix");
+        GetComponent<BoxCollider2D>().enabled = true;
+    }
+
+    if (enemySpawnPoint != null)
+    {
+        enemySpawnPoint.SetActive(false);
+    }
+
+    Debug.Log("Window Fixed!");
+}
+        public void OnFixButtonClicked()
+            {
+                buttonClicked = true;
+            }
 }

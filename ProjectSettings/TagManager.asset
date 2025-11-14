@@ -52,6 +52,9 @@ TagManager:
   - name: Windows
     uniqueID: 2679678295
     locked: 0
+  - name: Boarded windows
+    uniqueID: 3452840171
+    locked: 0
   - name: Player
     uniqueID: 2778396113
     locked: 0
