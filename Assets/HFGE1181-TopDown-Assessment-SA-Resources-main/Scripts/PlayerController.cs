@@ -25,6 +25,8 @@ public class PlayerController : MonoBehaviour
     private bool isKnockedBack = false;
     private Vector2 knockbackDirection;
     private Vector2 knockbackStartPos;
+    private Vector2 rightStickDirection;
+
     private bool isSprinting = false;
 
     private void Awake()
@@ -43,10 +45,22 @@ public class PlayerController : MonoBehaviour
           //  Debug.Log($"Move Input: {moveInput}");
         }
 
-    public void OnLook(InputAction.CallbackContext context)
+public void OnLook(InputAction.CallbackContext context)
+{
+    Vector2 look = context.ReadValue<Vector2>();
+
+    // If the input system is giving mouse position (PC)
+    if (Mouse.current != null && Mouse.current.wasUpdatedThisFrame)
     {
-        mousePosition = context.ReadValue<Vector2>();
+        mousePosition = look;
     }
+    else
+    {
+        // This is for right stick / touchscreen look
+        rightStickDirection = look;
+    }
+}
+
 
     public void OnSprint(InputAction.CallbackContext context)
     {
@@ -90,17 +104,24 @@ public class PlayerController : MonoBehaviour
     }
 
     private void RotateTowardsMouse()
-    {
-        if (playerHealth.isPlayerDead)
-        {
-            return;
-        }
+{
+    if (playerHealth.isPlayerDead) return;
 
-        Vector2 mouseWorldPos = mainCamera.ScreenToWorldPoint(mousePosition);
-        Vector2 direction = mouseWorldPos - rb.position;
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f;
+    
+    if (rightStickDirection.sqrMagnitude > 0.01f)
+    {
+        float angle = Mathf.Atan2(rightStickDirection.y, rightStickDirection.x) * Mathf.Rad2Deg - 90f;
         rb.rotation = angle;
+        return;
     }
+
+   
+    Vector2 mouseWorldPos = mainCamera.ScreenToWorldPoint(mousePosition);
+    Vector2 direction = mouseWorldPos - rb.position;
+    float angleMouse = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f;
+    rb.rotation = angleMouse;
+}
+
 
     private void MoveRelativeToScreen()
     {

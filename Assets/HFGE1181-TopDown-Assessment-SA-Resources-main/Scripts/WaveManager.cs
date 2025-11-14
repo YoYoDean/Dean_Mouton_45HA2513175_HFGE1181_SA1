@@ -2,6 +2,9 @@ using UnityEngine;
 using UnityEngine.Events;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
+using System;
+using Random = UnityEngine.Random;
 
 public class WaveManager : MonoBehaviour
 {
@@ -29,6 +32,7 @@ public class WaveManager : MonoBehaviour
     private int currentWaveIndex = -1;
     private bool isWaveActive = false;
     private float waveTimer;
+    public GameObject waveCurrent;
 
     private void Start()
     {
@@ -74,6 +78,7 @@ public class WaveManager : MonoBehaviour
         isWaveActive = true;
         onWaveStarted?.Invoke(waveIndex);
         Debug.Log($"Wave {waveIndex + 1} started!");
+        waveCurrent.GetComponent<TextMeshProUGUI>().text = "Wave: " + (waveIndex +1).ToString() ;
     }
 
     private IEnumerator SpawnEnemies(Wave wave)
